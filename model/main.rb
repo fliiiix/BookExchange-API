@@ -2,9 +2,20 @@ class User
   include DataMapper::Resource
 
   property :id,         Serial
-  property :username,   String
-  property :mail,       String
+  property :username,   String, :unique => true
+  property :password,   String
+  property :mail,       String, :unique => true
 
+  has n, :tokens
+end
+
+class Token
+  include DataMapper::Resource
+
+  property :id,         Serial
+  property :token,      String
+
+  belongs_to :user
 end
 
 
