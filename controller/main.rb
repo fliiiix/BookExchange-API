@@ -35,6 +35,7 @@ end
 
 
 require_relative "../model/main"
+require_relative "../model/fake"
 
 require_relative "user"
 require_relative "book"

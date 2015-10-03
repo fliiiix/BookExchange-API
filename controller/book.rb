@@ -23,6 +23,11 @@ get "/book/remove" do
 end
 
 get "/book/:isbn/?" do
+	'{
+	"isbn": "",
+	"title": "",
+	"image": "",
+	}'
 end
 
 get "/book/:userid/?" do
