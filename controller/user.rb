@@ -37,8 +37,8 @@ post "/user/add" do
 	User.create(params)
 end
 
-get "/user/:id/?" do
-
+get "/user/:id/?" do |id|
+	User.get(id).to_json
 end
 
 get "/user/:username/?" do

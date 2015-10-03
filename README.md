@@ -2,8 +2,13 @@
 
 Passwords are stored in clear text - 'cause we can!
 
+##User
 
-##Authflow
+### General
+
+[GET] `/user/:id` get detailed user infos
+
+###Authflow
 
 [POST] `/user/add` Create user
 [POST] `/gettoken` returns access token '{"username": "testuser", "password": "foobar"}'

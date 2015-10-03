@@ -9,7 +9,6 @@ end
 
 post "/book/add" do
 	token!
-	# '{isbn"=>"", "title"=>"", "author"=>"", "qualitiy"=>"", "status"=>""}'
 	params.delete("id")
 	u = User.get(session['userid'])
 	params[:user] = u
