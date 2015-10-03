@@ -8,8 +8,11 @@ get "/book/add" do
 end
 
 post "/book/add" do
+	token!
 	# '{isbn"=>"", "title"=>"", "author"=>"", "qualitiy"=>"", "status"=>""}'
 	params.delete("id")
+	u = User.get(session['userid'])
+	params.add(:user => u)
 	Book.create(params)
 end
 

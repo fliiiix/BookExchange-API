@@ -16,7 +16,7 @@ post "/gettoken/?" do
 		token = SecureRandom.base64
 		t = Token.create({:token => token, :user => u})
 		u.save
-		return "{'token': #{token}}"
+		return "{'token': '#{token}'}"
 	else
 		return '{"status": 401, "message": "user is not authenticated" }'
 	end

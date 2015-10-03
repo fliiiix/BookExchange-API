@@ -2,11 +2,12 @@ require "sinatra"
 require "json"
 require "data_mapper"
 
+use Rack::Session::Pool
+
 configure do
   set :views, Proc.new { File.join(root, "../views") }
   set :public_folder, Proc.new { File.join(root, "../public") }
 
-  
   DataMapper::Model.raise_on_save_failure = true
 end
 
@@ -18,6 +19,18 @@ configure :production do
   db = JSON.parse(ENV['VCAP_SERVICES'])['mariadb'][0]['credentials']['database_uri']
   DataMapper.setup(:default, db)
 end
+
+helpers do
+  def token!
+    t = Token.first(:token => params["token"])
+    if not t.nil?
+      session['userid'] = t.user.id
+    else
+  		halt 401
+  	end
+  end
+end
+
 
 require_relative "../model/main"
 

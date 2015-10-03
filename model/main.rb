@@ -7,6 +7,7 @@ class User
   property :mail,       String, :unique => true
 
   has n, :tokens
+  has n, :books
 end
 
 class Token
@@ -32,6 +33,8 @@ class Book
   property :prixFix,    Boolean
   property :away,       Boolean
   property :deleted,    Boolean
+
+  belongs_to :user
 end
 
 
