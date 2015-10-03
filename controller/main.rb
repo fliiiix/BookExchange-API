@@ -9,7 +9,7 @@ configure do
   set :views, Proc.new { File.join(root, "../views") }
   set :public_folder, Proc.new { File.join(root, "../public") }
 
-  DataMapper::Model.raise_on_save_failure = true
+  #DataMapper::Model.raise_on_save_failure = true
 end
 
 configure :development do

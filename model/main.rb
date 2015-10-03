@@ -28,7 +28,7 @@ class Book
   property :isbn,       String #isbn 13
   property :title,      String
   property :author,     String
-  property :image,      String
+  property :image,      Text
   property :qualitiy,   Enum[ :new, :used, :broken ], :default => :used
   property :status,     Enum[ :free, :borrow, :sell ], :default => :free
   property :price,      Float
