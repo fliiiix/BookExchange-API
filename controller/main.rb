@@ -2,7 +2,6 @@ require "rack"
 require "rack/contrib"
 
 require "sinatra"
-require 'sinatra/cross_origin'
 
 require "tilt/erb"
 require "json"
@@ -29,9 +28,9 @@ configure :production do
 end
 
 before do
-   headers 'Access-Control-Allow-Origin' => '*',
-       'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST'],
-       'Access-Control-Allow-Headers' => 'Content-Type'
+   headers['Access-Control-Allow-Origin'] = '*'
+   #headers['Access-Control-Allow-Methods'] = ['OPTIONS', 'GET', 'POST']
+   #headers['Access-Control-Allow-Headers'] = 'Content-Type'
 end
 
 helpers do
@@ -55,7 +54,7 @@ require_relative "book"
 require_relative "search"
 
 # to allow cors
-options "*" do
+option "*" do
   response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
   response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
 
