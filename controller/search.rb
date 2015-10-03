@@ -1,3 +1,3 @@
 get "/search/:zipcode" do |zipcode|
-	Book.all(:plz => zipcode).to_json
+	User.all(:plz => zipcode).books.to_json
 end

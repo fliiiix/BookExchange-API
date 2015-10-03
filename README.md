@@ -10,9 +10,9 @@ Passwords are stored in clear text - 'cause we can!
 
 Use this token for api calls with your use. (HTTP header `X-API`)
 
-`/book/add` Create a book json encoded '{isbn"=>"", "title"=>"", "author"=>"", "qualitiy"=>"", "status"=>""}'
+[POST] `/book/add` Create a book json encoded '{isbn"=>"", "title"=>"", "author"=>"", "qualitiy"=>"", "status"=>""}'
 
 
 ##Search hot books nearby
 
-`/search/:zipcode`
+[GET] `/search/:zipcode`
