@@ -1,6 +1,6 @@
 get "/book/:isbn/?" do
 end
-get "/book/:list/?" do 
+get "/book/:list/?" do
 end
 get "/book/:userid/?" do
 end
