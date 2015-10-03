@@ -1,0 +1,26 @@
+<form action="/book/add" method="post">
+  <input id="id" name="id" type="hidden" />
+  <div class="form-group">
+    <label for="isbn">ISBN</label>
+    <input type="text" class="form-control" id="isbn" name="isbn" placeholder="ISBN">
+  </div>
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text" class="form-control" id="title" name="title" placeholder="Title">
+  </div>
+  <div class="form-group">
+    <label for="author">Author</label>
+    <input type="text" class="form-control" id="author" name="author" placeholder="Author">
+  </div>
+  <div class="form-group">
+    <input type="radio" id="new" name="qualitiy" value="new"><label for="new"> New</label>
+    <input type="radio" id="used" name="qualitiy" value="used"><label for="used"> Used</label>
+    <input type="radio" id="broken" name="qualitiy" value="broken"><label for="broken"> Broken</label>
+  </div>
+  <div class="form-group">
+    <input type="radio" id="free" name="status" value="free"><label for="free"> free</label>
+    <input type="radio" id="borrow" name="status" value="borrow"><label for="borrow"> Used</label>
+    <input type="radio" id="sell" name="status" value="sell"><label for="sell"> Broken</label>
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

@@ -6,6 +6,7 @@ configure do
   set :public_folder, Proc.new { File.join(root, "../public") }
 
   DataMapper.setup(:default, 'mysql://localhost/books')
+  DataMapper::Model.raise_on_save_failure = true
 end
 
 require_relative "../model/main"

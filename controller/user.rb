@@ -12,3 +12,7 @@ get "/logout" do
 end
 post "/login" do
 end
+
+post "/getToken" do
+
+end
