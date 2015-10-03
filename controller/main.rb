@@ -1,4 +1,5 @@
 require "sinatra"
+require "json"
 require "data_mapper"
 
 configure do

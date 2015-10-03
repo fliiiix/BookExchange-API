@@ -1,5 +1,5 @@
 get "/book/list/?" do
-	p Book.all
+	content_type :json
 	Book.all.to_json
 end
 
@@ -8,9 +8,9 @@ get "/book/add" do
 end
 
 post "/book/add" do
+	# '{isbn"=>"", "title"=>"", "author"=>"", "qualitiy"=>"", "status"=>""}'
 	params.delete("id")
 	Book.create(params)
-	"ok"
 end
 
 get "/book/edit" do
