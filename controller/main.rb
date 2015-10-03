@@ -48,6 +48,15 @@ require_relative "user"
 require_relative "book"
 require_relative "search"
 
+# to allow cors
+options "*" do
+  response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
+
+  response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
+
+  200
+end
+
 get "/" do
 	erb :index
 end
