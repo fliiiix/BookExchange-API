@@ -54,11 +54,15 @@ GEM
     do_mysql (0.10.16)
       data_objects (= 0.10.16)
     fastercsv (1.5.5)
+    git-version-bump (0.15.1)
     json (1.8.3)
     json_pure (1.8.2)
     multi_json (1.11.2)
     puma (2.14.0)
     rack (1.6.4)
+    rack-contrib (1.4.0)
+      git-version-bump (~> 0.15)
+      rack (~> 1.4)
     rack-protection (1.5.3)
       rack
     sinatra (1.4.6)
@@ -76,4 +80,6 @@ DEPENDENCIES
   data_mapper
   dm-mysql-adapter
   puma
+  rack
+  rack-contrib
   sinatra

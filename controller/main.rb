@@ -1,9 +1,13 @@
+require "rack"
+require "rack/contrib"
+
 require "sinatra"
 require "tilt/erb"
 require "json"
 require "data_mapper"
 
 use Rack::Session::Pool
+use Rack::PostBodyContentTypeParser
 
 configure do
   set :views, Proc.new { File.join(root, "../views") }
