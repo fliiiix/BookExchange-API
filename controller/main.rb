@@ -2,6 +2,8 @@ require "rack"
 require "rack/contrib"
 
 require "sinatra"
+require 'sinatra/cross_origin'
+
 require "tilt/erb"
 require "json"
 require "data_mapper"
@@ -14,6 +16,7 @@ configure do
   set :public_folder, Proc.new { File.join(root, "../public") }
 
   #DataMapper::Model.raise_on_save_failure = true
+  enable :cross_origin
 end
 
 configure :development do
