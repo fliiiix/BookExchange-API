@@ -23,7 +23,7 @@ end
 
 helpers do
   def token!
-    t = Token.first(:token => params["token"])
+    t = Token.first(:token => request.env['HTTP_X_API'])
     p t
     if not t.nil?
       session['userid'] = t.user.id

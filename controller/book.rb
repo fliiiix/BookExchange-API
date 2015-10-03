@@ -12,7 +12,7 @@ post "/book/add" do
 	# '{isbn"=>"", "title"=>"", "author"=>"", "qualitiy"=>"", "status"=>""}'
 	params.delete("id")
 	u = User.get(session['userid'])
-	params.add(:user => u)
+	params[:user] = u
 	Book.create(params)
 end
 
