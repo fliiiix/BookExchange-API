@@ -16,7 +16,7 @@ configure do
   set :public_folder, Proc.new { File.join(root, "../public") }
 
   #DataMapper::Model.raise_on_save_failure = true
-  enable :cross_origin
+  set :protection, except: :http_origin
 end
 
 configure :development do
@@ -26,6 +26,12 @@ end
 configure :production do
   db = JSON.parse(ENV['VCAP_SERVICES'])['mariadb'][0]['credentials']['database_uri']
   DataMapper.setup(:default, db)
+end
+
+before do
+   headers 'Access-Control-Allow-Origin' => '*',
+       'Access-Control-Allow-Methods' => ['OPTIONS', 'GET', 'POST'],
+       'Access-Control-Allow-Headers' => 'Content-Type'
 end
 
 helpers do
@@ -51,7 +57,6 @@ require_relative "search"
 # to allow cors
 options "*" do
   response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
-
   response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
 
   200
