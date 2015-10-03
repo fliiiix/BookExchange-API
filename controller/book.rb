@@ -25,6 +25,7 @@ end
 get "/book/:isbn/?" do
 	'{
 	"isbn": "",
+	"author": "",
 	"title": "",
 	"image": "",
 	}'

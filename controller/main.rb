@@ -39,6 +39,7 @@ require_relative "../model/fake"
 
 require_relative "user"
 require_relative "book"
+require_relative "search"
 
 get "/" do
 	erb :index
