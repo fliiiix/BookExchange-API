@@ -1,4 +1,5 @@
 require "sinatra"
+require "tilt/erb"
 require "json"
 require "data_mapper"
 
@@ -23,10 +24,11 @@ end
 helpers do
   def token!
     t = Token.first(:token => params["token"])
+    p t
     if not t.nil?
       session['userid'] = t.user.id
     else
-  		halt 401
+  	  halt 401, '{"status": 401, "message": "user is not authenticated" }'
   	end
   end
 end
