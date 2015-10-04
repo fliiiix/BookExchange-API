@@ -54,7 +54,7 @@ require_relative "book"
 require_relative "search"
 
 # to allow cors
-option "*" do
+options "*" do
   response.headers["Allow"] = "HEAD,GET,PUT,POST,DELETE,OPTIONS"
   response.headers["Access-Control-Allow-Headers"] = "X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept"
 

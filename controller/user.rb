@@ -23,6 +23,7 @@ post "/login" do
 end
 
 post "/gettoken/?" do
+	p params
 	login params["username"], params["password"]
 end
 
